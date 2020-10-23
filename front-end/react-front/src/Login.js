@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './NavBar';
+import axios from 'axios';
+import Home from "./Home";
 
 class Login extends Component{
     constructor(){
@@ -8,8 +10,18 @@ class Login extends Component{
 
     state = {
         email:'',
-        password:''
+        password:'',
+        valid:false,
     }
+    updateState = updateState.bind(this)
+
+    isPersonValid = async() =>{
+        const url ='localhost:8080/api/person/'+this.state.email+'/'+this.state.password;
+        await axios.get(url).then(res => {
+            this.setState({valid: res.data.valid})
+        });
+    }
+
 
     myChangeHandler = (event) => {
         let nam = event.target.name;
@@ -19,7 +31,10 @@ class Login extends Component{
 
     mySubmitHandler = (event) => {
         event.preventDefault();
-        
+        if(this.isPersonValid){
+            Home.setState({logged:true});
+        }
+
     }
 
     render(){

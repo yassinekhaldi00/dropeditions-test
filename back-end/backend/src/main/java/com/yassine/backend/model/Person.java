@@ -1,4 +1,4 @@
-package com.yassine.dropeditions.model;
+package com.yassine.backend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,9 +21,19 @@ public class Person {
 	
 	@Column
 	private String password;
+	
+	private boolean valid;
 
 	public String getPassword() {
 		return password;
+	}
+
+	public boolean isValid() {
+		return valid;
+	}
+
+	public void setValid(boolean valid) {
+		this.valid = valid;
 	}
 
 	public void setPassword(String password) {

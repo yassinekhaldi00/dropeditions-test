@@ -11,6 +11,8 @@ class Home extends Component {
     state = {
       logged: true
     }
+
+    
   
     render(){
       return (
