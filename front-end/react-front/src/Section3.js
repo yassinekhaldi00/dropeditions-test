@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Youtube from 'react-youtube';
+import NavBar from './NavBar';
 
 
 class Section3 extends Component{
@@ -18,9 +19,12 @@ class Section3 extends Component{
             },
         };
         return(
-            <div className="youtube">
-                <Youtube videoId="f02mOEt11OQ" opts={opts} />
+            <div className='section3'>
+                <div className="youtube">
+                    <Youtube videoId="f02mOEt11OQ" opts={opts} />
+                </div>
             </div>
+            
             
         )
     }

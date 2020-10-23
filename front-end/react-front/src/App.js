@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import NavBar from './NavBar';
-import Section from './Section';
-import Section3 from './Section3';
+import Home from './Home';
+import Login from './Login';
 import './App.css';
 import './navBar.css';
-import './section.css';
+import './login.css';
 
-function App() {
-  return (
-    <div className="App">
-        <NavBar/>
+class App extends Component {
+  constructor(){
+    super();
+  }
 
-        <div className ="main">
-          <div className = "home">
-            <p>Welcome to our site</p>
-          </div>
-          <Section3/>
-          
-        </div>
-    </div>
-  );
+
+
+  render(){
+    return (
+      <Router>
+      <div className="App">
+          <NavBar/>
+          <Route path="/" exact component={Home}/>
+          <Route path="/login" component={Login}/>
+      </div>
+      </Router>
+    );
+  }
+
 }
 
 export default App;

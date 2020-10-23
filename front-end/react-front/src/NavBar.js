@@ -1,15 +1,16 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function NavBar(){
     return (
         <nav>
           <div className="logo">LOGO</div>
           <ul>
-            <li> <a className="signin" href="#">Authentification</a> </li>
-            <li> <a href="#">Private section 3</a> </li>
-            <li> <a href="#">Private section 2</a> </li>
-            <li> <a href="#">Private section 1</a> </li>
-            <li> <a  href="#">Home</a> </li>
+            <li> <Link to="/login" className="signin">Authentification</Link></li>
+            <li> <Link to="/"> Private section 3 </Link></li>
+            <li> <Link to="/"> Private section 2 </Link></li>
+            <li> <Link to="/"> Private section 1 </Link></li>
+            <li> <Link to="/"> Home </Link></li>
           </ul>
         </nav>
     )

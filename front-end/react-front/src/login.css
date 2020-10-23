@@ -1,0 +1,44 @@
+.form{
+    margin-top: 200px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    border-radius: 5px;
+    border: solid;
+    border-color: rgb(204, 204, 204);
+}
+
+.input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 300px;
+    border-radius: 5px;
+    font-family: 'Questrial', sans-serif;
+    border: none;
+    padding: 10px;
+    background-color: rgb(232, 232, 232);
+}
+
+.btn{
+    margin: 10px;
+    font-family: 'Questrial', sans-serif;
+    padding: 10px;
+    width: 320px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(139, 162, 221);
+    transition-duration: 0.4s;
+}
+.btn:hover{
+    background-color: rgb(118, 138, 189);
+}
+.material-icons{
+    color:rgb(204, 204, 204);
+    font-size: 70px;
+}
+
