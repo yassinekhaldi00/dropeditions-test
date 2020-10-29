@@ -18,5 +18,10 @@ public class PersonServiceImpl implements PersonService {
 		return personDao.getPerson(email, password);
 	}
 	
+	@Transactional
+	public Person addPerson(Person person) {
+		return personDao.addPerson(person);
+	}
+	
 	
 }

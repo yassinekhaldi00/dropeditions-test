@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import Youtube from 'react-youtube';
-import NavBar from './NavBar';
 
 
 class Section3 extends Component{
-    constructor(){
-        super();
-    }
 
     render(){
         const opts = {
@@ -14,7 +10,7 @@ class Section3 extends Component{
             width: '640',
             playerVars: {
               // https://developers.google.com/youtube/player_parameters
-              autoplay: 1,
+              autoplay: 0,
               start:63,
             },
         };

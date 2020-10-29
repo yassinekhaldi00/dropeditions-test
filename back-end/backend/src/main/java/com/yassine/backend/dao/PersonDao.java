@@ -4,4 +4,5 @@ import com.yassine.backend.model.Person;
 
 public interface PersonDao {
 	Person getPerson(String email, String password);
+	Person  addPerson(Person person);
 }

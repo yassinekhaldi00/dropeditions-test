@@ -1,54 +1,44 @@
-import React, { Component } from 'react';
-import Navbar from './NavBar';
+import React, {useState} from 'react';
 import axios from 'axios';
-import Home from "./Home";
+import {useHistory} from 'react-router-dom';
+import md5 from 'crypto-js/md5';
 
-class Login extends Component{
-    constructor(){
-        super();
-    }
 
-    state = {
-        email:'',
-        password:'',
-        valid:false,
-    }
-    updateState = updateState.bind(this)
+function Login (props){
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-    isPersonValid = async() =>{
-        const url ='localhost:8080/api/person/'+this.state.email+'/'+this.state.password;
+    let history = useHistory();
+
+    const salt = 'E1F5';
+
+    async function mySubmitHandler () {
+        const hashedPassword = md5(password+salt).toString();
+        const url ='http://localhost:8080/api/person/'+username+'/'+hashedPassword;
         await axios.get(url).then(res => {
-            this.setState({valid: res.data.valid})
+            console.log(res.data.valid);
+            if(res.data.valid){
+                props.isLogged();
+                history.push("/");
+               console.log("logged");
+            }else{
+                props.isNotLogged();
+                console.log("not logged");
+            }
         });
     }
 
-
-    myChangeHandler = (event) => {
-        let nam = event.target.name;
-        let val = event.target.value;
-        this.setState({[nam]: val});
-    }
-
-    mySubmitHandler = (event) => {
-        event.preventDefault();
-        if(this.isPersonValid){
-            Home.setState({logged:true});
-        }
-
-    }
-
-    render(){
         return (
-            <div classNam='login'>
-                <form className="form" onSubmit={this.mySubmitHandler}>
+            <div className='login'>
+                <form className="form" >
                     <i className="material-icons">lock</i>
-                    <input className = 'input' type = 'email'name='email' placeholder='Email' onChange={this.myChangeHandler}/>
-                    <input className = 'input' type = 'password' name = 'password' placeholder='Password' onChange={this.myChangeHandler}/>
-                    <button className='btn' type='submit'>Log In</button>
+                    <input className = 'input' type = 'text'name='username' placeholder='username' onChange={event => setUsername(event.target.value)}/>
+                    <input className = 'input' type = 'password' name = 'password' placeholder='Password' onChange={event => setPassword(event.target.value)}/>
+                    <button className='btn' type='button' onClick={mySubmitHandler}>Log In</button>
                  </form>
             </div>
         )
-    }
+    
 } 
 
 export default Login;

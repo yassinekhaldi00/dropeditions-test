@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "person")
@@ -22,6 +23,7 @@ public class Person {
 	@Column
 	private String password;
 	
+	@Transient
 	private boolean valid;
 
 	public String getPassword() {

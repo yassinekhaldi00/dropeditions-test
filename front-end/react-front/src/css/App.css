@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+}
+
+
+.home .welcome{
+  margin-top: 150px;
+  font-size: 70px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("/public/stock.jpg");
+}
+
+.log{
+    font-size: 1.5em;
+    margin: 10px;
+    font-family: 'Questrial', sans-serif;
+    padding: 15px 40px;
+    border: solid;
+    border-color:rgb(139, 162, 221) ;
+    border-radius: 5px;
+    background-color: white;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width:200px;
+}
+
+.log:hover{
+  background-color: rgb(118, 138, 189);
+}
+
+.sign{
+  width:200px;
+  font-size: 1.5em;
+  margin: 10px;
+  font-family: 'Questrial', sans-serif;
+  padding: 15px 40px;
+  border: solid;
+  border-color:gray;
+  border-radius: 5px;
+  background-color: rgb(142, 168, 235);
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.sign:hover{
+  background-color: rgb(118, 138, 189);
+
+}

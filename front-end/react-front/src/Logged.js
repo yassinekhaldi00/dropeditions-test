@@ -7,13 +7,10 @@ class Logged extends Component{
     render() {
         return(
             <div>
-                <Section date = '2020-01-02'/>
-                <Section date = '2020-01-03'/>
                 <Section3/>
             </div>
-
         )
     }
 }
 
-export default Logged;
+export default Logged;  

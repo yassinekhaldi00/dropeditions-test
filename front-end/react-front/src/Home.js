@@ -1,32 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Logged from './Logged';
-import './section.css';
+import {Link} from 'react-router-dom';
+import './css/section.css';
 
-class Home extends Component {
+function Home(props) {
 
-    constructor(){
-      super();
-    }
-  
-    state = {
-      logged: true
-    }
-
-    
-  
-    render(){
-      return (
-        <div className = "home">
-            <p className='welcome'>Welcome to our web site</p>
-            {this.state.logged ? (
-                <Logged/>
-            ):(
-            <button className='log'>login</button>
-            )}
-        </div>
-      )
-
-    }
+  if(props.logged){
+    return(
+      <div className = "home">
+          <p className='welcome'>Welcome to our web site</p>
+          <Logged/>
+      </div>
+    )
+  }else{
+    return(
+    <div className = "home">
+          <p className='welcome'>Welcome to our web site</p>
+          <Link to='/login'><button className='log'>Log In</button></Link>
+          <Link to='/sign'><button className='sign'>Sign up</button></Link>
+      </div>
+    )
+  }
 
 }
 
